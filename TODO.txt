@@ -13,9 +13,12 @@ That sucks! We want it to look nicer; for instance, it could look like this:
     width 800
     height 400
 
-But, holy cow. We'd have to really change our logic, and introduce either case statements or working with hashes.
+But, holy cow. We'd have to really change our logic, and introduce either 
+case statements or working with hashes.
 
-This seems like a problem that a lot of people must have all of the time, for almost every project: how to load config files. There must be a ruby gem out there for this!
+This seems like a problem that a lot of people must have all of the time, 
+for almost every project: how to load config files. There must be a ruby 
+gem out there for this!
  
 
 How to handle 4, 20, 50 or 100 moving images instead of 1
@@ -28,7 +31,8 @@ we reference three variables. They are:
 
 That's okay for now. 
 
-But what if you had a directory full of little pictures, and you wanted them to all 'walk' around the screen at once?
+But what if you had a directory full of little pictures, and you wanted 
+them to all 'walk' around the screen at once?
 
 Imagine typing
 
@@ -60,14 +64,22 @@ as this?
       end
     end
 
-Well -- aside from a little bit of work in the initialize() method, it WILL be that simple. Because we're going to build our own Image class, and then instantiate many of them with images from a directory. From the code snippet above, we can already see that it'll need:
+Well -- aside from a little bit of work in the initialize() method, it 
+WILL be that simple. Because we're going to build our own Image class, 
+and then instantiate many of them with images from a directory. 
+
+(Remember, we talked about Classes/Instances before -- `class Animal`,
+`class Human < Animal`).
+
+From the code snippet above, we can already see that it'll need:
 
     - to be initialized with a filename, x and y arguments
     - to keep track of its own x and y attributes
     - to have a `move` method that wraps up random movement
     - to have a `draw` method that wraps up drawing to its location
 
-So we'll probably want to make a file, `models.rb`, where we'll start writing this class:
+So we'll probably want to make a file, `models.rb`, where we'll start 
+writing this class:
 
     class MovableImage
       def initialize
@@ -76,3 +88,17 @@ So we'll probably want to make a file, `models.rb`, where we'll start writing th
       # here too!
     end
 
+From there we'll pair-program a bit.
+
+As to 'why would I make a MovableImage class?', there's a WONDERFUL
+reason. For instance, imagine a video game. How many of the images on
+screen need to keep track of their locations in the fashion described?
+
+Probably all of them. The Heads-Up Display, the hero and enemy characters,
+the background, the "Ready, Set, Go!" at the beginning of a level ...
+they all share some similar behavior. And, poof, the crazy complexity of 
+keeping track of dozens or hundreds of different resources gets reduced
+to defining how one or two different TYPES of things behave.
+
+Again, we'll pair-program. But if you meditate a bit on this section,
+it'll feel more familiar when we do this.
