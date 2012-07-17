@@ -1,0 +1,78 @@
+Improvements
+============
+
+Find a library for config files
+============================================
+
+Our config file looks like this:
+
+    800
+
+That sucks! We want it to look nicer; for instance, it could look like this:
+
+    width 800
+    height 400
+
+But, holy cow. We'd have to really change our logic, and introduce either case statements or working with hashes.
+
+This seems like a problem that a lot of people must have all of the time, for almost every project: how to load config files. There must be a ruby gem out there for this!
+ 
+
+How to handle 4, 20, 50 or 100 moving images instead of 1
+=========================================================
+
+We're drawing one image right now. To do that, in our draw method,
+we reference three variables. They are:
+
+    @bg, @x, @y
+
+That's okay for now. 
+
+But what if you had a directory full of little pictures, and you wanted them to all 'walk' around the screen at once?
+
+Imagine typing
+
+    @img27, @x27, @y27 = Gosu::Image..., 0, 0
+
+100 times in the initialize function, and in the update function:
+
+    @x27 += rand
+    @y27 += rand
+
+100 times to make it move, and in the draw function:
+
+    @img27.draw @x27, @y27
+
+one hundred times ... obviously, that would stink.
+
+Really, wouldn't it be nice if supporting 100 moving images was as simple
+as this?
+
+    def update
+      @images.each do |img|
+        img.move_in_a_random_direction
+      end
+    end
+    
+    def draw
+      @images.each do |img|
+        img.draw              # sweet, it knows how to 
+      end
+    end
+
+Well -- aside from a little bit of work in the initialize() method, it WILL be that simple. Because we're going to build our own Image class, and then instantiate many of them with images from a directory. From the code snippet above, we can already see that it'll need:
+
+    - to be initialized with a filename, x and y arguments
+    - to keep track of its own x and y attributes
+    - to have a `move` method that wraps up random movement
+    - to have a `draw` method that wraps up drawing to its location
+
+So we'll probably want to make a file, `models.rb`, where we'll start writing this class:
+
+    class MovableImage
+      def initialize
+        # here be dragons!
+      end
+      # here too!
+    end
+
