@@ -4,11 +4,12 @@ require './helpers.rb'
 include Helpers
 
 class GameWindow < Gosu::Window
+	attr_accessor :y
+	
 	def initialize
 		@x, @y = 0, 0
-		
 		@width = get_width 'CONFIG'
-
+		
 		super @width, 480, false
 		self.caption = "Gosu Tutorial Game"
 		@bg = Gosu::Image.new(self, "pic2.gif", true)
@@ -17,7 +18,6 @@ class GameWindow < Gosu::Window
 	
 	def update
 		@x = @x+1
-		@y = 1
 		@x = 0 if @x==@edge
 	end
 	
@@ -28,4 +28,5 @@ class GameWindow < Gosu::Window
 end
 
 window = GameWindow.new
+window.y = 20
 window.show
