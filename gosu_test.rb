@@ -1,9 +1,8 @@
 require 'gosu'
 require './helpers.rb'
 
-include Helpers
-
 class GameWindow < Gosu::Window
+	include Helpers
 	attr_accessor :y
 	
 	def initialize
