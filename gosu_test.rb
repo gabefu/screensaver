@@ -1,28 +1,36 @@
 require 'gosu'
 require './helpers.rb'
+require './models.rb'
 
 class GameWindow < Gosu::Window
 	include Helpers
 	attr_accessor :y
+	include Gosu
 	
 	def initialize
-		@x, @y = 0, 0
-		@width = get_width 'CONFIG'
 		
-		super @width, 480, false
-		self.caption = "Gosu Tutorial Game"
-		@bg = Gosu::Image.new(self, "pic2.gif", true)
-		@edge = if @bg.width > @width then @bg.width else @width end
+		super 640, 480, false
+		self.caption = "Multi-image funtime!"
+		@background_image = Gosu::Image.new(self, "surf_background.png", true)
+		@images = []
+		4.times do
+			img = MoveableImage.new(self, "surf4.png", rand(640), rand(480))
+			@images.push img
+		end
+		puts @images
 	end
 	
 	def update
-		@x = @x+1
-		@x = 0 if @x==@edge
+		@images.each {|img|
+			img.move
+		}
 	end
 	
 	def draw
-		@bg.draw(@x-@edge,@y,0)
-		@bg.draw(@x,@y,0)
+		@background_image.draw(0, 0, 0)
+		@images.each {|img|
+			img.draw
+		}
 	end
 end
 

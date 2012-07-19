@@ -66,7 +66,7 @@ as this?
 
 Well -- aside from a little bit of work in the initialize() method, it 
 WILL be that simple. Because we're going to build our own Image class, 
-and then instantiate many of them with images from a directory. 
+and then instantiate many of them with images from a directory.
 
 (Remember, we talked about Classes/Instances before -- `class Animal`,
 `class Human < Animal`).
