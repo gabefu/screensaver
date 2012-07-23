@@ -1,7 +1,21 @@
-Saving Progress
-===============
+gosu project
+============
 
-Once you've made a change you would like to keep, you need to commit it in Git.
+This is our first project. It's a learning experience: a little OOP, 
+a little refactoring, a little Git.
+
+# On Git and Github
+
+Github has an amazing windows client now, but you'll always need to
+know some basic commands, because they're the basic operations that
+you need to perform with Git. For instance:
+
+## Saving Changes
+
+Once you've made a change you would like to keep, you need to "commit" it in Git.
+
+It's not difficult to do this in the Windows client, but the following method is
+foolproof:
 
 Right-click on the project directory and select "Git Bash here". A prompt will come up, and you can run the commands
 
