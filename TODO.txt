@@ -1,5 +1,32 @@
-Improvements
+Todo priorities
 ============
+
+Scroll down for details on these.
+
+1. Classes (under way)
+2. Configuration files
+3. General Project Cleanup
+
+Each one has sub-tasks that can be accomplished simply enough. If
+the task involves finding something out, then you could edit it directly
+into this TODO file for now.
+
+General Cleanup
+======
+
+1. _License_. All projects ought to have a license file sitting in the root directory. 
+Hey, investigate these. The most common are GPL, LGPL and MIT licensed. 
+What are the practical differences?
+
+2. _Resource organization_. Resources like images should be in folders, etc, instead of dumped
+   into the root directory.
+
+3. _Readme_. All projects need a good Readme. Someone even once wrote an article on
+   'Readme-Driven Development'
+
+4. _Todo_. A TODO file indicating the project's priorities, to get an idea 
+   of what things need work next.
+
 
 Find a library for config files
 ============================================
@@ -21,8 +48,10 @@ for almost every project: how to load config files. There must be a ruby
 gem out there for this!
  
 
-How to handle 4, 20, 50 or 100 moving images instead of 1
-=========================================================
+Refactoring into Classes
+==========
+
+#### Or, How to handle 4, 20, 50 or 100 moving images instead of 1
 
 We're drawing one image right now. To do that, in our draw method,
 we reference three variables. They are:
